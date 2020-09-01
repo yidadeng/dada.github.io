@@ -1,0 +1,97 @@
+
+extend _template
+
+block vars
+  - title = 'this is page title'
+  - deimgsrciption = 'xxx'
+  - keywords = 'xxx'
+  - img = 'http://localhost:3000/assets/images/share/ogp.jpg'
+  - url = 'http://localhost:3000'
+
+block contains
+
+  div.c-kv-box
+    |这里是kvBox
+  div(data-module='legacy' data-delay-time=3000 data-options={"legacy":{delayTimeOp: 3000}}) Legacy!
+  div(data-module='legacy' data-delay-time=5000 data-options={"legacy":{delayTimeOp: 8000}})= `Legacy! ${say} ${name}!`
+  p= `${say} ${name}!`
+  p `${say} ${name}!`
+  ul
+  -
+    var list = [
+      {
+        num: 1,
+        txt: 'aaa.jpg',
+      },
+      {
+        num: 2,
+        txt: 'bbb.jpg',
+      },
+      {
+        num: 3,
+        txt: 'ccc.jpg',
+      },
+    ]
+  each item in list
+    li item #{item.num} : #{item.txt}
+
+  div.c-slide-wrapper
+    div.c-slide-contents(data-module='sliderEle')
+      -
+        var list = [
+          {
+            num: 1,
+            imgsrc: 'https://dummyimage.com/600x400/d1d1d1/fff.gif',
+          },
+          {
+            num: 2,
+            imgsrc: 'https://dummyimage.com/600x400/c7c7c7/fff.gif',
+          },
+          {
+            num: 3,
+            imgsrc: 'https://dummyimage.com/600x400/ababab/fff.gif',
+          },
+        ]
+      each item in list
+        div.c-slide-child
+          img(src=`${item.imgsrc}` alt=`slide-${item.num}`)
+
+
+
+  div.c-youtube-outter
+    div.c-youtube-wrapper( data-yt-player)
+      div.c-youtube-contents
+        div.c-youtube-thumb(data-video-thumb)
+        div.c-youtube-player(data-yt-id="DKNcTcIKO40")
+
+    div.c-youtube-wrapper( data-yt-player)
+      div.c-youtube-contents
+        div.c-youtube-thumb(data-video-thumb)
+        div.c-youtube-player(data-yt-id="1zr5yAh0KyE")
+
+  div.c-location-zone(data-module='ajaxPart' id='c-location-zone')
+      p.c-location-contents Click for your location
+      div.c-location-result show your location here
+
+
+  div.c-model-zone
+    - for (var x=0; x < 5; x++)
+      div(data-module='modelEle')
+        p(data-model-role='btn' class=`c-model-btn btn-${x+1}` data-module='handleBody') this is btn #{x + 1}
+
+  div.c-scroll-zone
+    - for (var x=1 ; x < 31 ; x++)
+      div(class=`c-scroll-child child-${x}` data-module='scrollEle' ) item #{x}
+
+  +list('',['list01', 'list02', 'list03'],false)
+  +list('about',['home', 'about', 'news','products'],true)
+
+
+
+
+
+
+
+
+
+

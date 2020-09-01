@@ -1,0 +1,6 @@
+div.c-menu(data-module='menuSp')
+  div.c-menu-btn(data-menu-role='btn' data-module='handleBody')
+  div.c-menu-contents(data-menu-role='contents')
+    div.c-menu-contents-inner
+      - for(var i = 0; i < 30 ; i++)
+        div(class=`c-menu-contents-item is-${i}`) item #{i}

@@ -1,0 +1,14 @@
+
+
+mixin list(now, list, artflg )
+  - var list = list || ['home', 'about', 'news']
+  - var now = now || list[0]
+  ul.c-artcolor-list(data-module= artflg ? 'colorfulList' : '')
+    each item in list
+      - var name = item.toUpperCase()
+      if now === item
+        li(class='list').is-active
+          a(href=item + '.html') #{name}
+      else
+        li(class='list')
+          a(href=item + '.html') #{name}
